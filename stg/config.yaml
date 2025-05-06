@@ -1,0 +1,49 @@
+workspaces:
+
+  dev:
+
+    s3:
+      - bkt_name: safepag-dev-athena
+        versioning: false
+
+      - bkt_name: api.config
+        
+      - bkt_name: api.config2
+        
+      - bkt_name: api.pix
+        versioning: false
+
+      - bkt_name: app.cnab-files
+        versioning: false
+
+      - bkt_name: app.compliance-monitoring-evidences
+        versioning: false
+
+      - bkt_name: app.efx-remittance-batch-files
+
+      - bkt_name: app.efx-remittance-files
+        versioning: false
+
+      - bkt_name: app.transaction-core-file-report
+        versioning: false
+
+      - bkt_name: app.transaction-core-payment-manual-receipt
+        versioning: false
+
+      - bkt_name: app.transaction-core-payout-manual-receipt
+        versioning: false
+
+      - bkt_name: logs
+        versioning: false
+
+      - bkt_name: datadog-tags-cache
+
+      - bkt_name: datadogintegration-forwarderbucket-uqyr4f4e7hp7
+        versioning: false
+
+    s3_frontend:
+      - bkt_name: frontend.backoffice-ui
+      - bkt_name: frontend.checkout-ui
+      - bkt_name: frontend.developer-ui
+      - bkt_name: frontend.merchant-panel-ui
+      - bkt_name: frontend.teste
