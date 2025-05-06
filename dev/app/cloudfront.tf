@@ -29,12 +29,12 @@ module "cloudfront" {
 
   logging_config = {
     bucket = module.s3["logs"].s3_bucket_bucket_domain_name
-    prefix = "${each.value.bkt_name}-bazk-cloudfront-logs"
+    prefix = "${each.value.bkt_name}-${local.sticker}-cloudfront-logs"
   }
 
   origin = {
     "${each.value.bkt_name}" = {
-      domain_name = "${each.value.bkt_name}-bazk-${var.env}-${local.region_alias}.${local.s3_domain_name}"
+      domain_name = "${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}.${local.s3_domain_name}"
 
       origin_access_control = "s3_oac" # key in `origin_access_control`
 
@@ -95,7 +95,7 @@ module "s3_frontend" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "4.6.0"
 
-  bucket = "${each.value.bkt_name}-bazk-${var.env}-${local.region_alias}"
+  bucket = "${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}"
   acl    = "private"
 
   control_object_ownership = true

@@ -7,7 +7,7 @@ locals {
   default_tags = {
     Enviroment = var.env
     #Service      = "#{Service}#"
-    Owner        = "Bazk Infrastructure"
+    Owner        = "Cloud Infrastructure Team"
     Description  = "Resource created by Terraform"
     CostType     = "CostType"
     Created_date = timestamp()

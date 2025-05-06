@@ -3,7 +3,7 @@ module "s3" {
   source = "terraform-aws-modules/s3-bucket/aws"
   version = "4.6.0"
 
-  bucket = "${each.value.bkt_name}-bazk-${var.env}-${local.region_alias}"
+  bucket = "${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}"
   acl    = "private"
 
   control_object_ownership = true

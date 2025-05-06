@@ -5,7 +5,7 @@ module "s3" {
   for_each = { for buckets in local.workspace.s3 : buckets.bkt_name => buckets
   if buckets.bkt_name != "" && buckets.bkt_name != [] }
 
-  bucket = "${each.value.bkt_name}-bazk-${var.env}-${local.region_alias}"
+  bucket = "${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}"
   acl    = "private"
 
   control_object_ownership = true

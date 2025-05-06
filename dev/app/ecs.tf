@@ -5,7 +5,7 @@ module "ecs_cluster" {
   for_each = { for ecss in local.workspace.ecs : ecss.cluster => ecss
   if ecss.cluster != "" && ecss.cluster != [] }
 
-  cluster_name = "${each.value.cluster}-ecs-cluster-bazk-${var.env}-${local.region_alias}"
+  cluster_name = "${each.value.cluster}-ecs-cluster-${local.sticker}-${var.env}-${local.region_alias}"
 
   # Capacity provider
   fargate_capacity_providers = {
@@ -31,7 +31,7 @@ module "ecs_service" {
 
   for_each = local.workspace.ecs[0].service
 
-  name                  = "${each.key}-ecs-svc-bazk-${var.env}-${local.region_alias}"
+  name                  = "${each.key}-ecs-svc-${local.sticker}-${var.env}-${local.region_alias}"
   cluster_arn           = module.ecs_cluster["main"].arn
   subnet_ids            = data.aws_subnets.private.ids
   create_security_group = false
@@ -48,7 +48,7 @@ module "ecs_service" {
   container_definitions = {
 
     "${each.key}" = {
-      name        = "${each.key}-container-bazk-${var.env}-${local.region_alias}"
+      name        = "${each.key}-container-${local.sticker}-${var.env}-${local.region_alias}"
       cpu         = try(each.value.cpu, 256)
       memory      = try(each.value.memory, 512)
       essential   = true
@@ -85,7 +85,7 @@ module "ecs_service" {
   load_balancer = {
     service = {
       target_group_arn = aws_lb_target_group.private["${each.key}"].arn
-      container_name   = "${each.key}-container-bazk-${var.env}-${local.region_alias}"
+      container_name   = "${each.key}-container-${local.sticker}-${var.env}-${local.region_alias}"
       container_port   = 443
     }
   }
@@ -96,8 +96,8 @@ module "ecs_service" {
 }
 
 resource "aws_service_discovery_private_dns_namespace" "this" {
-  name        = "teste.${var.env}.bazk.cloud"
-  description = "CloudMap namespace for ${var.env}.bazk.cloud"
+  name        = "teste.${var.env}.${local.sticker}.cloud"
+  description = "CloudMap namespace for ${var.env}.${local.sticker}.cloud"
   vpc         = data.aws_vpc.vpc.id
   tags        = local.default_tags
 }

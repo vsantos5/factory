@@ -6,7 +6,7 @@ module "efs" {
   if efss.name != "" && efss.name != [] }
 
   # File system
-  name      = "${each.value.name}-efs-bazk-${var.env}-${local.region_alias}"
+  name      = "${each.value.name}-efs-${local.sticker}-${var.env}-${local.region_alias}"
   encrypted = true
 
   lifecycle_policy = {

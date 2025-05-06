@@ -29,7 +29,7 @@ data "aws_acm_certificate" "certs" {
 }
 
 data "aws_acm_certificate" "alb" {
-  domain   = "api.${var.env}.bazk.com"
+  domain   = "api.${var.env}.${local.sticker}.com"
   statuses = ["ISSUED"]
 }
 /*
@@ -40,42 +40,42 @@ data "aws_route53_zone" "this" {
 */
 data "aws_vpc" "vpc" {
   tags = {
-    Name = "vpc-bazk-${var.env}"
+    Name = "vpc-${local.sticker}-${var.env}"
   }
 }
 
 data "aws_subnets" "all" {
   filter {
     name   = "tag:Name"
-    values = ["subnet-bazk-${var.env}-*"]
+    values = ["subnet-${local.sticker}-${var.env}-*"]
   }
 }
 
 data "aws_subnets" "public" {
   filter {
     name   = "tag:Name"
-    values = ["subnet-bazk-${var.env}-public-*"]
+    values = ["subnet-${local.sticker}-${var.env}-public-*"]
   }
 }
 
 data "aws_subnets" "private" {
   filter {
     name   = "tag:Name"
-    values = ["subnet-bazk-${var.env}-private-*"]
+    values = ["subnet-${local.sticker}-${var.env}-private-*"]
   }
 }
 
 data "aws_security_group" "alb-private" {
   filter {
     name   = "tag:Name"
-    values = ["alb-private-sg-bazk-*"]
+    values = ["alb-private-sg-${local.sticker}-*"]
   }
 }
 
 data "aws_security_group" "alb-public" {
   filter {
     name   = "tag:Name"
-    values = ["alb-public-sg-bazk-*"]
+    values = ["alb-public-sg-${local.sticker}-*"]
   }
 }
 /*
@@ -83,8 +83,8 @@ data "terraform_remote_state" "shared" {
   backend = "s3"
   config = {
     key            = "app/terraform.tfstate"
-    bucket         = "terraform-bazk-${var.env}-${local.region_alias}"
-    dynamodb_table = "bazk-terraform-${var.env}-shared"
+    bucket         = "terraform-${local.sticker}-${var.env}-${local.region_alias}"
+    dynamodb_table = "${local.sticker}-terraform-${var.env}-shared"
     region         = local.region
     #profile        = "workload-${var.environment}"
   }
@@ -105,7 +105,7 @@ data "aws_iam_policy_document" "bucket_read_policy" {
     ]
 
     resources = [
-      "arn:aws:s3:::${each.value.bkt_name}-bazk-${var.env}-${local.region_alias}/*"
+      "arn:aws:s3:::${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}/*"
       #"${module.s3_frontend["${each.value.bkt_name}"].s3_bucket_arn}/*"
       #"${aws_s3_bucket.merchant-panel-ui.arn}/*" ##################################
     ]
@@ -122,7 +122,7 @@ data "aws_iam_policy_document" "bucket_read_policy" {
     ]
 
     resources = [
-      "arn:aws:s3:::${each.value.bkt_name}-bazk-${var.env}-${local.region_alias}"
+      "arn:aws:s3:::${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}"
       #module.s3_frontend["${each.value.bkt_name}"].s3_bucket_arn
     ]
   }

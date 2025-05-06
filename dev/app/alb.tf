@@ -5,7 +5,7 @@ module "alb" {
   for_each = { for albs in local.workspace.alb : albs.name => albs
   if albs.name != "" && albs.name != [] }
 
-  name    = "${each.value.name}-alb-bazk-${var.env}-${local.region_alias}"
+  name    = "${each.value.name}-alb-${local.sticker}-${var.env}-${local.region_alias}"
   vpc_id  = data.aws_vpc.vpc.id         #data.terraform_remote_state.network.outputs.vpc_id
   subnets = data.aws_subnets.public.ids #data.terraform_remote_state.network.outputs.public_subnets
 
@@ -51,7 +51,7 @@ resource "aws_lb_listener" "this" {
 resource "aws_lb_target_group" "private" {
   for_each = local.workspace.alb[0].service
 
-  name        = "${each.key}-tg-alb-bazk-${var.env}-${local.region_alias}"
+  name        = "${each.key}-tg-alb-${local.sticker}-${var.env}-${local.region_alias}"
   port        = 443
   protocol    = "HTTPS"
   target_type = "ip"
@@ -74,7 +74,7 @@ resource "aws_lb_target_group" "private" {
 resource "aws_lb_target_group" "public" {
   for_each = local.workspace.alb[1].service
 
-  name        = "${each.key}-tg-alb-bazk-${var.env}-${local.region_alias}"
+  name        = "${each.key}-tg-alb-${local.sticker}-${var.env}-${local.region_alias}"
   port        = 443
   protocol    = "HTTPS"
   target_type = "ip"
