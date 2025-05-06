@@ -1,0 +1,294 @@
+{
+  "body": {
+    "message": "Bem-vindo ao Painel do Merchant",
+    "time": "Hora",
+    "UTCTime": "Hora UTC",
+    "timeZone": "Fuso Horário",
+    "currency": "Moeda",
+    "loggedUser": "Usuário"
+  },
+
+  "errors": {
+    "500": "Ops! Ocorreu um erro inesperado",
+    "401": "Falha de autorização, tente logar novamente",
+    "400": "Dados inválidos",
+    "404": "Recurso não encontrado",
+    "pageNotFound": "Erro 404: Página não encontrada"
+  },
+
+  "table": {
+    "emptyTitle": "Nenhum resultado encontrado",
+    "emptyMessage": "Tente ajustar a busca e os filtros para encontrar o que estiver procurando",
+    "someError": "Falha ao obter resultados da busca"
+  },
+
+  "back": "Voltar",
+  "confirm": "Confirmar",
+
+  "topbar": {
+    "logout": "Sair",
+
+    "hintUser": "Usuário logado {{username}}",
+
+    "accountPicker": {
+      "description": "Selecione uma Conta"
+    },
+
+    "aggregatorEntity": {
+      "description": "Selecione um Merchant",
+      "all": "Todos",
+      "hiddenName": "(Não Informado)"
+    }
+  },
+
+  "loading": {
+    "loading": "Carregando...",
+    "loadedAll": "Dados carregados",
+    "records": "Total de {{total}} registros"
+  },
+
+  "login": {
+    "description": "Bem-vindo ao Painel do Merchant. Informe seu usuário e senha para ter acesso.",
+    "buttonLabel": "Continuar"
+  },
+
+  "groupByChooser": {
+    "day": "Dia",
+    "week": "Semana",
+    "month": "Mês"
+  },
+
+  "dashboard": {
+    "available": "Disponível",
+    "transit": "Trânsito",
+    "balance": "Saldo",
+
+    "amountPayIn": "Entradas",
+    "amountCashOut": "Saídas",
+
+    "operationIn": "Pay IN",
+    "operationOut": "Pay OUT",
+
+    "totalizers": {
+      "total": "Total",
+      "completed": "Concluídas",
+      "pending": "Pendentes",
+      "cancelled": "Canceladas",
+      "refunded": "Devolvidas"
+    },
+    "toggleAmount": "Valor",
+    "toggleCount": "Quantidade"
+  },
+
+  "transaction": {
+    "title": "Transações",
+    "overview": "Resumo",
+    "recentTransactions": "Transações Recentes",
+    "records": "registros",
+
+    "id": "ID",
+    "bank": "Bank ID",
+    "externalReference": "Merchant Ref",
+    "createdAt": "Data",
+    "operationType": "Tipo",
+    "user": "Usuário",
+    "originalAmount": "Valor Original",
+    "fee": "Taxas",
+    "accountAmount": "Montante Merchant",
+    "status": "Status",
+    "actions": "Ações",
+    "refund": "Estornar",
+    "seeAll": "Veja Todos",
+
+    "customerName": "Nome Completo",
+    "customerEmail": "E-mail",
+    "customerDocumentNumber": "Documento",
+
+    "receipt": "Comprovante de pagamento",
+    "paymentMethod": "Método de pagamento",
+    "refundReason": "Motivo do estorno",
+    "selectReason": "Por favor, selecione um motivo para o estorno",
+    "successfulReversalReversal": "Estorno solicitado com sucesso",
+
+    "refundOptions": {
+      "userRemorse": "Arrependimento do usuário",
+      "undueValue": "Valor indevido",
+      "unmetExpectations": "Expectativas não atendidas",
+      "defect": "Defeito"
+    },
+
+    "hints": {
+      "id": "ID",
+      "merchantId": "ID Merchant",
+      "createdAt": "Data",
+      "operationType": "Tipo",
+      "user": "Usuário",
+      "originalAmount": "Valor Original",
+      "fee": "Taxas",
+      "accountAmount": "Montante Merchant",
+      "status": "Status",
+      "seeAll": "Veja Todos",
+
+      "customerName": "Nome Completo",
+      "customerEmail": "E-mail",
+      "customerDocumentNumber": "Documento"
+    }
+  },
+
+  "transactionDetail": {
+    "title": {
+      "customer": "Infos do Usuário",
+      "detail": "Transação",
+      "history": "Histórico da Transação"
+    },
+    "logs": "Logs & Requisição"
+  },
+
+  "statementType": {
+    "PAY_IN": "Pay IN",
+    "PAY_OUT": "Pay OUT",
+    "REFUND": "Devolução",
+    "CASH_IN": "Cash IN",
+    "CASH_OUT": "Cash OUT",
+    "TRANSACTION_FEE": "FEE da Transação",
+    "MONTHLY_FEE": "Cobrança Mensal",
+    "TAX": "Imposto",
+    "WALLET_IN": "Wallet IN",
+    "WALLET_OUT": "Wallet OUT"
+  },
+
+  "operationType": {
+    "PAY_IN": "Pay IN",
+    "PAY_OUT": "Pay OUT",
+    "REFUND": "Devolução",
+    "CASH_IN": "Cash IN",
+    "CASH_OUT": "Cash OUT",
+    "WALLET_IN": "Wallet IN",
+    "WALLET_OUT": "Wallet OUT"
+  },
+
+  "paymentMethod": {
+    "TEF": "TEF",
+    "PIX": "PIX"
+  },
+
+  "entryType": {
+    "CREDIT": "Crédito",
+    "DEBIT": "Débito'"
+  },
+
+  "transactionType": {
+    "PAY_IN": "Pay IN",
+    "PAY_OUT": "Pay OUT"
+  },
+
+  "status": {
+    "CREATED": "Criada",
+    "COMPLETED": "Concluída",
+    "REFUNDED": "Devolvida",
+    "PENDING": "Pendente",
+    "CANCELLED": "Cancelada",
+    "REQUESTED": "Solicitada",
+    "ACTIVE": "Ativo",
+    "DISABLED": "Inativo",
+    "DEBIT": "Débito",
+    "CREDIT": "Crédito",
+    "FAILED": "Falhou",
+    "notAccepted": "Não aceita"
+  },
+
+  "statement": {
+    "title": "Extrato",
+    "records": "registros",
+    "bankOperationType": {
+      "transactional": "Transacional",
+      "proprietary": "Proprietária"
+    },
+    "missingTransactionRequestInfo": "Não é possível ver detalhes desse tipo de transação",
+    "id": "ID",
+    "transaction": "Transação",
+    "userInformation": "Informações do usuario",
+    "description": "Descrição",
+    "customerName": "Nome",
+    "customerDocument": "Documento",
+    "type": "Tipo",
+    "paymentMethod": "Método de pagamento",
+    "accountAmount": "Valor",
+    "downloadReceipt": "Download comprovante",
+    "closeModal": "Fechar",
+    "externalReference": "ID Merchant",
+    "date": "Data (criado em)",
+    "customerAmount": "Valor Cliente",
+    "fees": "Taxas",
+    "balance": "Saldo",
+    "status": "Status",
+    "hints": {
+      "id": "ID",
+      "externalReference": "ID Merchant",
+      "type": "Tipo",
+      "date": "Data",
+      "customerName": "Nome",
+      "customerAmount": "Valor Cliente",
+      "description": "Descrição",
+      "fees": "Taxas",
+      "accountAmount": "Valor",
+      "balance": "Saldo"
+    }
+  },
+
+  "accountTransfer": {
+    "title": "Transferência entre Contas",
+    "lastTransactions": "Últimas transações",
+    "transferBetweenAccounts": "Transferência entre contas",
+    "request": "Solicitar",
+    "sourceAccount": "Conta de origem",
+    "requiredField": "Campo obrigatório",
+    "requiredFieldSourceAccount": "Selecione uma conta de origem",
+    "sameAccountsSourceAccount": "A conta de origem não pode ser igual à conta de destino",
+    "requiredFieldTargetAccount": "Selecione uma conta de destino",
+    "sameAccountsTargetAccount": "A conta de destino não pode ser igual à conta de origem",
+
+    "success": "Transferência solicitada com sucesso",
+
+    "destinationAccount": "Conta de destino",
+    "amount": "Valor",
+    "money": "R$ 0,00"
+  },
+
+  "account_sync": {
+    "title": "Sinc. de contas",
+    "subtitle": "Transação entre contas",
+    "bank": "ID Banco",
+    "source_account": "Conta Origem",
+    "target_account": "Conta Destino",
+    "date": "Data (criado em)",
+    "type": "Tipo",
+    "amount": "Valor",
+    "transaction_account": "Conta Transacional",
+    "proprietary_account": "Conta Proprietária",
+    "graphic_account": "Conta Gráfica",
+    "unsettled_bets": "Apostas em aberto"
+  },
+  "permissions": {
+    "title": "Configurações Gerais",
+    "subtitle": "Permissões",
+    "myAccount": "Minha conta",
+    "id": "ID",
+    "user": "Usuário",
+    "users": "Usuários",
+    "name": "Nome",
+    "email": "Email",
+    "status": "Status",
+    "role": "Perfil",
+    "roles": "Perfis",
+    "updatedAt": "Data de Alteração",
+    "settings": "Configurações",
+    "addButton": "Adicionar",
+    "saveButton": "Salvar",
+    "success": "Permissões salvas com sucesso",
+  },
+  "pagination": {
+    "of": "de",
+    "records": "registros"
+  }
+}

@@ -1,0 +1,80 @@
+# Before apply this file, itś mandatory to update EC2NodeClass/ spec:/ role
+# with the correct Karpenter IAM role for your cluster
+# and the subnetSelectorTerms/securityGroupSelectorTerms with the correct tags.
+### Add this IAM access on Karpenter node policy
+# {
+#     "Effect": "Allow",
+#     "Action": "iam:CreateServiceLinkedRole",
+#     "Resource": "*",
+#     "Condition": {
+#         "StringEquals": {
+#             "iam:AWSServiceName": "spot.amazonaws.com"
+#         }
+#     }
+# }
+###
+# kubectl get events -w --sort-by '.lastTimestamp'
+# Register the nodes if needed
+# kubectl label node <node-name> karpenter.sh/registered=true
+# kubectl annotate node <node-name> karpenter.sh/capacity-type=spot
+# Scale node groups using Karpenter
+# aws eks update-nodegroup-config \
+#   --cluster-name <cluster-name> \
+#   --nodegroup-name <nodegroup-name> \
+#   --scaling-config minSize=1,maxSize=5,desiredSize=4
+
+---
+apiVersion: karpenter.k8s.aws/v1beta1
+kind: EC2NodeClass
+metadata:
+  name: default
+spec:
+  # amiFamily required, resolves a default ami and userdata
+  amiFamily: Bottlerocket
+  role: karpenter-main-eks-cluster-dev-use2-2025050523162856080000001b
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: karpenter
+  securityGroupSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: karpenter
+  tags:
+    karpenter.sh/discovery: karpenter
+---
+apiVersion: karpenter.sh/v1beta1
+kind: NodePool
+metadata:
+  name: default
+spec:
+  template:
+    spec:
+      nodeClassRef:
+        apiVersion: karpenter.k8s.aws/v1beta1
+        kind: EC2NodeClass
+        name: default
+      #
+      requirements:
+        - key: "karpenter.k8s.aws/instance-category"
+          operator: In
+          values: ["c", "m", "r", "t"]
+        - key: "karpenter.k8s.aws/instance-cpu"
+          operator: In
+          values: ["4", "8", "16", "32"]
+        - key: "karpenter.k8s.aws/instance-hypervisor"
+          operator: In
+          values: ["nitro"]
+        - key: "karpenter.k8s.aws/instance-generation"
+          operator: Gt
+          values: ["2"]
+        - key: "kubernetes.io/arch"
+          operator: In
+          values: ["arm64", "amd64"] 
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: ["spot"]
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  disruption:
+    consolidationPolicy: WhenEmpty
+    consolidateAfter: 30s

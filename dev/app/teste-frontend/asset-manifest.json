@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b66f5f2.css",
+    "main.js": "/static/js/main.061ae41b.js",
+    "static/media/logo-safepag-1.svg": "/static/media/logo-safepag-1.8fb1708df8f6f877e44e264530c87a46.svg",
+    "static/media/flag_usa.svg": "/static/media/flag_usa.88708a02b98cad0a8b2d952dd0c622fc.svg",
+    "static/media/balance_available.svg": "/static/media/balance_available.e64e4c1a5311dc5c435a1f4d9bf8aefb.svg",
+    "static/media/flag_brazil.svg": "/static/media/flag_brazil.4d6f45e333082fda2e03bcd970848959.svg",
+    "index.html": "/index.html",
+    "static/media/cash_out_icon.svg": "/static/media/cash_out_icon.ebbe4af8d5ffa12178382b989be6e85d.svg",
+    "static/media/pay_in_icon.svg": "/static/media/pay_in_icon.fd9f563f945b74d5d3ae92c7e3134a24.svg",
+    "static/media/chevron-down.svg": "/static/media/chevron-down.dbc2ba038c0e5f0b90d400a5efd30157.svg",
+    "static/media/flag_spain.svg": "/static/media/flag_spain.3baf872d045548ee5caa4cda92edebda.svg",
+    "static/media/flag_france.svg": "/static/media/flag_france.5b203429d9cfedabfff4c762eff057c7.svg",
+    "static/media/green_svg.svg": "/static/media/green_svg.084aff9da3254daace87ceff8a5fc8e3.svg",
+    "static/media/blue_svg.svg": "/static/media/blue_svg.6e6b4a2b0b757135848eccbb017987fc.svg",
+    "static/media/yellow_svg.svg": "/static/media/yellow_svg.93c9e4033268f55e5f48f63e741bbd4b.svg",
+    "static/media/bg-login-desk.svg": "/static/media/bg-login-desk.8fa344cb66c6f79b43b38dcfc252c710.svg",
+    "static/media/closeModal.svg": "/static/media/closeModal.f62862c6571367515ce17c7b4e77a1fc.svg",
+    "main.3b66f5f2.css.map": "/static/css/main.3b66f5f2.css.map",
+    "main.061ae41b.js.map": "/static/js/main.061ae41b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b66f5f2.css",
+    "static/js/main.061ae41b.js"
+  ]
+}

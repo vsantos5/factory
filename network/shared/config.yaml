@@ -1,0 +1,17 @@
+workspaces:
+
+  net:
+
+    vpc:
+      - name: bazk-net
+        cidr_block: 10.101.0.0/16
+        public_subnets: ["10.101.0.0/24", "10.101.1.0/24", "10.101.2.0/24"]
+        private_subnets: ["10.101.8.0/22", "10.101.12.0/22", "10.101.16.0/22"]
+        customer_gateway:
+          - name: "bazk-cgw-use2"
+            bgp_asn: 64515 # BGP ASN do dispositivo VPN remoto
+            ip_address: 163.186.55.1 # IP público do dispositivo VPN remoto
+    
+    tgw:
+      - name: bazk-transit-gateway-net-use2
+        asn: 65515

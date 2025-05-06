@@ -1,0 +1,297 @@
+{
+  "body": {
+    "message": "Welcome to Merchant Panel",
+    "time": "Time",
+    "UTCTime": "UTC Time",
+    "timeZone": "Time Zone",
+    "currency": "Currency",
+    "loggedUser": "Usuer"
+  },
+
+  "back": "Back",
+  "confirm": "Confirm",
+
+  "errors": {
+    "500": "Oops! An unexpected error happened",
+    "401": "Unable to authorize, please try again",
+    "400": "Invalid information",
+    "404": "Not found",
+    "pageNotFound": "Erro 404: Page not found"
+  },
+
+  "table": {
+    "emptyTitle": "No results found",
+    "emptyMessage": "Try adjusting your search or filter to find what you are looking for",
+    "someError": "Failed to retrieve results"
+  },
+
+  "topbar": {
+    "logout": "Logout",
+
+    "hintUser": "Logged User {{username}}",
+
+    "accountPicker": {
+      "description": "Select an Account"
+    },
+
+    "aggregatorEntity": {
+      "description": "Select a Merchant",
+      "all": "All",
+      "hiddenName": "(Not Provided)"
+    }
+  },
+
+  "loading": {
+    "loading": "Loading...",
+    "loadedAll": "Loaded",
+    "records": "{{total}} records"
+  },
+
+  "login": {
+    "description": "Welcome to Merchant Panel. Please, inform user and password to login.",
+    "buttonLabel": "Login"
+  },
+
+  "groupByChooser": {
+    "day": "Day",
+    "week": "Week",
+    "month": "Month"
+  },
+
+  "dashboard": {
+    "available": "Available",
+    "transit": "Transit",
+    "balance": "Balance",
+
+    "operationIn": "Pay IN",
+    "operationOut": "Pay OUT",
+
+    "amountPayIn": "Pay In",
+    "amountCashOut": "Cash Out",
+
+    "totalizers": {
+      "total": "Total",
+      "completed": "Completed",
+      "pending": "Pending",
+      "cancelled": "Cancelled",
+      "refunded": "Refunded"
+    },
+    "toggleAmount": "Amount",
+    "toggleCount": "Count"
+  },
+
+  "transaction": {
+    "title": "Transactions",
+    "overview": "Overview",
+    "recentTransactions": "Recent Transactions",
+    "records": "records",
+
+    "id": "ID",
+    "bank": "Bank ID",
+    "externalReference": "Merchant Ref",
+    "createdAt": "Date",
+    "operationType": "Type",
+    "user": "User",
+    "originalAmount": "Original Amount",
+    "fee": "Fees",
+    "accountAmount": "Merchant Amount",
+    "status": "Status",
+    "actions": "Actions",
+    "refund": "Refund",
+    "seeAll": "See All",
+
+    "customerName": "Full Name",
+    "customerEmail": "E-mail",
+    "customerDocumentNumber": "Document",
+    "paymentMethod": "Payment Method",
+
+    "receipt": "Payment receipt",
+    "refundReason": "Refund Reason",
+    "selectReason": "Please select a refund reason",
+    "successfulReversalReversal": "Refund requested successfully",
+
+    "refundOptions": {
+      "userRemorse": "User Remorse",
+      "undueValue": "Undue Value",
+      "unmetExpectations": "Unmet Expectations",
+      "defect": "Defect"
+    },
+
+    "error": "Error",
+
+    "hints": {
+      "id": "ID",
+      "merchantId": "ID Merchant",
+      "createdAt": "Date",
+      "operationType": "Type",
+      "user": "User",
+      "originalAmount": "Original Amount",
+      "fee": "Fees",
+      "accountAmount": "Merchant Amount",
+      "status": "Status",
+      "seeAll": "See All",
+
+      "customerName": "Full Name",
+      "customerEmail": "E-mail",
+      "customerDocumentNumber": "Document"
+    }
+  },
+
+  "transactionDetail": {
+    "title": {
+      "customer": "User Info",
+      "detail": "Transaction",
+      "history": "Transaction History"
+    },
+    "logs": "Logs & Payload"
+  },
+
+  "statementType": {
+    "PAY_IN": "Pay IN",
+    "PAY_OUT": "Pay OUT",
+    "REFUND": "Refund",
+    "CASH_IN": "Cash IN",
+    "CASH_OUT": "Cash OUT",
+    "TRANSACTION_FEE": "Transaction FEE",
+    "MONTHLY_FEE": "Monthly FEE",
+    "TAX": "Tax",
+    "WALLET_IN": "Wallet IN",
+    "WALLET_OUT": "Wallet OUT"
+  },
+
+  "operationType": {
+    "PAY_IN": "Pay IN",
+    "PAY_OUT": "Pay OUT",
+    "REFUND": "Refund",
+    "CASH_IN": "Cash IN",
+    "CASH_OUT": "Cash OUT",
+    "WALLET_IN": "Wallet IN",
+    "WALLET_OUT": "Wallet OUT"
+  },
+
+  "paymentMethod": {
+    "TEF": "TEF",
+    "PIX": "PIX"
+  },
+
+  "entryType": {
+    "CREDIT": "Credit",
+    "DEBIT": "Debit'"
+  },
+
+  "transactionType": {
+    "PAY_IN": "Pay IN",
+    "PAY_OUT": "Pay OUT"
+  },
+
+  "status": {
+    "CREATED": "Created",
+    "COMPLETED": "Completed",
+    "REFUNDED": "Refunded",
+    "PENDING": "Pending",
+    "CANCELLED": "Cancelled",
+    "ACTIVE": "Active",
+    "DISABLED": "Disabled",
+    "DEBIT": "Debit",
+    "CREDIT": "Credit",
+    "REQUESTED": "Requested",
+    "FAILED": "Failed",
+
+    "notAccepted": "Not Accepted"
+  },
+
+  "statement": {
+    "title": "Statement",
+    "records": "records",
+    "transaction": "Transaction",
+    "userInformation": "User information",
+    "missingTransactionRequestInfo": "It is not possible to detail this operation type",
+    "id": "ID",
+    "bankOperationType": {
+      "transactional": "Transactional",
+      "proprietary": "Proprietary"
+    },
+    "description": "Description",
+    "customerName": "Name",
+    "customerDocument": "Customer document",
+    "type": "Type",
+    "paymentMethod": "Payment method",
+    "accountAmount": "Amount",
+    "downloadReceipt": "Download receipt",
+    "closeModal": "Close",
+    "externalReference": "ID Merchant",
+    "date": "Date",
+    "customerAmount": "Customer Amount",
+    "fees": "Fees",
+    "balance": "Balance",
+    "status": "Status",
+    "hints": {
+      "id": "ID",
+      "externalReference": "ID Merchant",
+      "type": "Type",
+      "date": "Date",
+      "customerName": "Name",
+      "customerAmount": "Customer Amount",
+      "description": "Description",
+      "fees": "Fees",
+      "accountAmount": "Amount",
+      "balance": "Balance"
+    }
+  },
+
+  "accountTransfer": {
+    "title": "Account Transfer",
+    "lastTransactions": "Last transactions",
+    "transferBetweenAccounts": "Transfer between accounts",
+    "request": "Request",
+    "sourceAccount": "Source account",
+    "destinationAccount": "Destination account",
+    "requiredField": "Required field",
+    "requiredFieldSourceAccount": "Select a source account",
+    "sameAccountsSourceAccount": "The source account cannot be the same as the destination account",
+    "requiredFieldTargetAccount": "Select a destination account",
+    "sameAccountsTargetAccount": "The destination account cannot be the same as the source account",
+
+    "success": "Transfer requested successfully",
+
+    "amount": "Amount",
+    "money": "$ 0,00"
+  },
+
+  "account_sync": {
+    "title": "Inter Account Sync",
+    "subtitle": "Inter Account Transaction",
+    "bank": "Bank ID",
+    "source_account": "Source Account",
+    "target_account": "Target Account",
+    "date": "Date (created at)",
+    "type": "Type",
+    "amount": "Amount",
+    "transaction_account": "Transaction Account",
+    "proprietary_account": "Proprietary Account",
+    "graphic_account": "Graphic Account",
+    "unsettled_bets": "Unsettled Bets"
+  },
+  "permissions": {
+    "title": "General Settings",
+    "subtitle": "Permissions",
+    "myAccount": "My account",
+    "id": "ID",
+    "user": "User",
+    "users": "Users",
+    "name": "Name",
+    "email": "Email",
+    "status": "Status",
+    "role": "Role",
+    "roles": "Roles",
+    "updatedAt": "Updated At",
+    "settings": "Settings",
+    "addButton": "Create",
+    "saveButton": "Save",
+    "success": "Permissions saved successfully"
+  },
+  "pagination": {
+    "of": "of",
+    "records": "records"
+  }
+}
