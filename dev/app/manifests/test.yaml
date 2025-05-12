@@ -13,6 +13,9 @@ spec:
         app: inflate
     spec:
       terminationGracePeriodSeconds: 0
+      # provisioner:
+      #   name: test-provisioner
+      #   namespace: karpenter
       containers:
         - name: inflate
           image: public.ecr.aws/eks-distro/kubernetes/pause:3.7
