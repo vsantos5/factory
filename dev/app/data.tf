@@ -64,7 +64,7 @@ data "aws_subnets" "private" {
     values = ["subnet-${local.sticker}-${var.env}-private-*"]
   }
 }
-
+/*
 data "aws_security_group" "alb-private" {
   filter {
     name   = "tag:Name"

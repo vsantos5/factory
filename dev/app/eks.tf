@@ -1,30 +1,30 @@
-# module "eks-blueprints-addons" {
-#   source  = "aws-ia/eks-blueprints-addons/aws"
-#   version = "~> 1.21.0"
+module "eks-blueprints-addons" {
+  source  = "aws-ia/eks-blueprints-addons/aws"
+  version = "~> 1.21.0"
 
-#   for_each = { for ekss in local.workspace.eks : ekss.cluster => ekss
-#   if ekss.cluster != "" && ekss.cluster != [] }
+  for_each = { for ekss in local.workspace.eks : ekss.cluster => ekss
+  if ekss.cluster != "" && ekss.cluster != [] }
 
-#   cluster_name      = "${each.value.cluster}-eks-cluster-${var.env}-${local.region_alias}"
-#   cluster_endpoint  = module.eks["${each.value.cluster}"].cluster_endpoint
-#   cluster_version   = each.value.cluster_version
-#   oidc_provider_arn = module.eks["${each.value.cluster}"].oidc_provider_arn
+  cluster_name      = "${each.value.cluster}-eks-cluster-${var.env}-${local.region_alias}"
+  cluster_endpoint  = module.eks["${each.value.cluster}"].cluster_endpoint
+  cluster_version   = each.value.cluster_version
+  oidc_provider_arn = module.eks["${each.value.cluster}"].oidc_provider_arn
 
-#   eks_addons = {
-#     aws-ebs-csi-driver = {
-#       most_recent = true
-#     }
-#     coredns = {
-#       most_recent = true
-#     }
-#     vpc-cni = {
-#       before_compute = true
-#       most_recent    = true
-#     }
-#     kube-proxy = {
-#       most_recent = true
-#     }
-#   }
+  eks_addons = {
+    aws-ebs-csi-driver = {
+      most_recent = true
+    }
+    coredns = {
+      most_recent = true
+    }
+    vpc-cni = {
+      before_compute = true
+      most_recent    = true
+    }
+    kube-proxy = {
+      most_recent = true
+    }
+  }
 
 #   # https://github.com/aws-ia/terraform-aws-eks-blueprints-addons/blob/main/docs/addons/aws-load-balancer-controller.md
 #   # kubectl get deployment aws-load-balancer-controller -n kube-system -o yaml | less
@@ -102,10 +102,10 @@
 #   #   ]
 #   # }
 
-#   depends_on = [module.eks]
+  depends_on = [module.eks]
 
-#   tags = local.default_tags
-# }
+  tags = local.default_tags
+}
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
@@ -124,12 +124,12 @@ module "eks" {
   enable_cluster_creator_admin_permissions = true
   cluster_endpoint_public_access           = true
 
-  cluster_addons = {
-    coredns                = {}
-    eks-pod-identity-agent = {}
-    kube-proxy             = {}
-    vpc-cni                = {}
-  }
+  # cluster_addons = {
+  #   coredns                = {}
+  #   eks-pod-identity-agent = {}
+  #   kube-proxy             = {}
+  #   vpc-cni                = {}
+  # }
 
   eks_managed_node_groups = {
     karpenter = {
@@ -194,7 +194,7 @@ resource "helm_release" "karpenter" {
   name                = "karpenter"
   repository          = "oci://public.ecr.aws/karpenter"
   chart               = "karpenter"
-  version             = "1.1.1" #1.2.3
+  version             = "1.2.3" #"1.1.1"
   wait                = false
 
   values = [

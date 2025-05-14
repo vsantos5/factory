@@ -26,7 +26,7 @@ locals {
         {
           rule                     = "https-443-tcp"
           description              = "Public ALB SG"
-          source_security_group_id = data.aws_security_group.alb-public.id
+          source_security_group_id = ""#data.aws_security_group.alb-public.id
         }
       ]
     }

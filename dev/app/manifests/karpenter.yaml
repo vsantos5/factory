@@ -22,18 +22,13 @@
 # Register the nodes if needed
 # kubectl label node <node-name> karpenter.sh/registered=true
 # kubectl annotate node <node-name> karpenter.sh/capacity-type=spot
-# Scale node groups using Karpenter
-# aws eks update-nodegroup-config \
-#   --cluster-name <cluster-name> \
-#   --nodegroup-name <nodegroup-name> \
-#   --scaling-config minSize=1,maxSize=5,desiredSize=4
 
 ---
 ---
 apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:
-  name: default
+  name: karpenter-node-class
 spec:
   amiSelectorTerms:
     - alias: bottlerocket@latest
@@ -50,7 +45,7 @@ spec:
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
-  name: default
+  name: karpenter-node-pool
 spec:
   template:
     spec:
