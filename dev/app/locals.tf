@@ -6,9 +6,9 @@ locals {
   config    = yamldecode(file("../config.yaml"))
   workspace = local.config["workspaces"][var.env]
 
-  domain_name    = "${var.env}.${local.sticker}.com" # trimsuffix(data.aws_route53_zone.this.name, ".")
+  domain_name    = "${var.env}.${local.sticker}.link" # trimsuffix(data.aws_route53_zone.this.name, ".")
   s3_domain_name = "s3.${local.region}.amazonaws.com"
-  sticker        = "bazk"
+  sticker        = "vmoura"
 
   vpc_cidr = yamldecode(file("../shared/config.yaml"))["workspaces"][var.env]["vpc"][0]["cidr_block"]
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)

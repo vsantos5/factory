@@ -96,7 +96,7 @@ module "ecs_service" {
 }
 
 resource "aws_service_discovery_private_dns_namespace" "this" {
-  name        = "teste.${var.env}.${local.sticker}.cloud"
+  name        = "${var.env}.${local.sticker}.cloud"
   description = "CloudMap namespace for ${var.env}.${local.sticker}.cloud"
   vpc         = data.aws_vpc.vpc.id
   tags        = local.default_tags

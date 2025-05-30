@@ -23,13 +23,14 @@ data "aws_availability_zones" "public" {
 data "aws_acm_certificate" "certs" {
   for_each = { for buckets in local.workspace.cloudfront : buckets.bkt_name => buckets
   if buckets.bkt_name != "" && buckets.bkt_name != [] }
+  
   domain   = "${each.value.bkt_name}.${local.domain_name}"
   statuses = ["ISSUED"]
   provider = aws.use1
 }
 
 data "aws_acm_certificate" "alb" {
-  domain   = "api.${var.env}.${local.sticker}.com"
+  domain   = "api.${local.domain_name}"
   statuses = ["ISSUED"]
 }
 /*

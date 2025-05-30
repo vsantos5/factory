@@ -13,10 +13,12 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "terraform-bazk-dev-use2"
+    bucket         = "terraform-vini-dev-use2"
     region         = "us-east-2"
-    dynamodb_table = "bazk-terraform-dev-shared"
+    #dynamodb_table = "bazk-terraform-dev-shared"
     key            = "app/terraform.tfstate"
+    encrypt        = true
+    use_lockfile   = true
   }
 }
 
@@ -31,7 +33,7 @@ provider "aws" {
   # access_key = var.access_key
   # secret_key = var.secret_key
 }
-
+/*
 provider "kubernetes" {
   host                   = module.eks["main"].cluster_endpoint
   cluster_ca_certificate = base64decode(module.eks["main"].cluster_certificate_authority_data)
@@ -56,3 +58,4 @@ provider "helm" {
     }
   }
 }
+*/
