@@ -102,7 +102,7 @@ workspaces:
   ```
   3- Get the Admin password
   ```bash
-echo "$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)"
+  echo "$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)"
   ```
   
 - **Prometheus/Grafana**: Instructions for accessing Grafana and retrieving credentials follow the instructions below.
