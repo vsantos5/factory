@@ -17,11 +17,13 @@ This module provisions an AWS EKS cluster and its core add-ons using Terraform a
 
 ## File Structure
 
+```
 <workload>/
   <environment>/
     app/
       *.tf                # Terraform modules and resources
     config.yaml           # Main environment configuration
+```
 
 ---
 
