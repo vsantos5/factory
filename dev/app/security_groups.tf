@@ -13,8 +13,7 @@ locals {
       ingress_cidr_blocks = [
         data.aws_vpc.vpc.cidr_block, #VPC
         "100.96.0.0/11",             #VPN
-        "201.22.213.218/32",         #VIVO
-        "170.233.229.105/32"         #Blue3
+        "201.22.213.218/32",         #ISP
       ]
       ingress_rules = ["https-443-tcp", "http-80-tcp"]
     }
@@ -26,7 +25,7 @@ locals {
         {
           rule                     = "https-443-tcp"
           description              = "Public ALB SG"
-          source_security_group_id = ""#data.aws_security_group.alb-public.id
+          source_security_group_id = data.aws_security_group.alb-public.id
         }
       ]
     }

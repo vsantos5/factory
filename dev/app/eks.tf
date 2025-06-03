@@ -26,12 +26,6 @@ module "eks-blueprints-addons" {
     }
   }
 
-#   # https://github.com/aws-ia/terraform-aws-eks-blueprints-addons/blob/main/docs/addons/aws-load-balancer-controller.md
-#   # kubectl get deployment aws-load-balancer-controller -n kube-system -o yaml | less
-#   enable_aws_load_balancer_controller = true
-
-#   # https://github.com/aws-ia/terraform-aws-eks-blueprints-addons/blob/main/docs/addons/aws-node-termination-handler.md
-#   #enable_aws_node_termination_handler = try(each.value.enable_node_termination_handler, true)
 #   enable_argocd = try(each.value.enable_argocd, true)
 #   # After enabling argocd, run the following command to change itś Service Type to LoadBalancer
 #   # kubectl -n argocd patch svc argo-cd-argocd-server -p '{"spec": {"type": "LoadBalancer"}}'
@@ -54,54 +48,6 @@ module "eks-blueprints-addons" {
 #   enable_cert_manager = try(each.value.enable_cert_manager, true)
 #   #cert_manager_route53_hosted_zone_arns  = data.aws_route53_zone.this.arn #["arn:aws:route53:::hostedzone/XXXXXXXXXXXXX"]
 
-#   # https://github.com/aws-ia/terraform-aws-eks-blueprints-addons/blob/main/docs/addons/cluster-proportional-autoscaler.md
-#   # enable_cluster_proportional_autoscaler = try(each.value.enable_cluster_autoscaler, true)
-#   # cluster_proportional_autoscaler = {
-#   #   values = [
-#   #     <<-EOT
-#   #       nameOverride: kube-dns-autoscaler
-
-#   #       # Formula for controlling the replicas. Adjust according to your needs
-#   #       # replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )
-#   #       config:
-#   #         linear:
-#   #           coresPerReplica: 256
-#   #           nodesPerReplica: 16
-#   #           min: 1
-#   #           max: 100
-#   #           preventSinglePointFailure: true
-#   #           includeUnschedulableNodes: true
-
-#   #       # Target to scale. In format: deployment/*, replicationcontroller/* or replicaset/* (not case sensitive).
-#   #       options:
-#   #         target: deployment/* # Notice the target as `deployment/coredns`
-
-#   #       serviceAccount:
-#   #         create: true
-#   #         name: kube-dns-autoscaler
-
-#   #       podSecurityContext:
-#   #         seccompProfile:
-#   #           type: RuntimeDefault
-#   #           supplementalGroups: [65534]
-#   #           fsGroup: 65534
-
-#   #       resources:
-#   #         limits:
-#   #           cpu: 100m
-#   #           memory: 128Mi
-#   #         requests:
-#   #           cpu: 100m
-#   #           memory: 128Mi
-
-#   #       tolerations:
-#   #         - key: "CriticalAddonsOnly"
-#   #           operator: "Exists"
-#   #           description: "Cluster Proportional Autoscaler for CoreDNS Service"
-#   #     EOT
-#   #   ]
-#   # }
-
   depends_on = [module.eks]
 
   tags = local.default_tags
@@ -123,13 +69,6 @@ module "eks" {
 
   enable_cluster_creator_admin_permissions = true
   cluster_endpoint_public_access           = true
-
-  # cluster_addons = {
-  #   coredns                = {}
-  #   eks-pod-identity-agent = {}
-  #   kube-proxy             = {}
-  #   vpc-cni                = {}
-  # }
 
   eks_managed_node_groups = {
     karpenter = {
@@ -194,7 +133,7 @@ resource "helm_release" "karpenter" {
   name                = "karpenter"
   repository          = "oci://public.ecr.aws/karpenter"
   chart               = "karpenter"
-  version             = "1.2.3" #"1.1.1"
+  version             = "1.2.3"
   wait                = false
 
   values = [

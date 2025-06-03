@@ -43,7 +43,7 @@ workspaces:
     
     cloudfront:      
       - bkt_name: []
-      #- bkt_name: teste    
+      #- bkt_name: test
 
     ecs:
       - cluster: []
@@ -99,7 +99,6 @@ workspaces:
       #   enable_metrics_server: true
       #   enable_external_dns: true
       #   enable_cert_manager: true
-      #   enable_ack_addons: false
     
     s3:
       #- bkt_name: []      

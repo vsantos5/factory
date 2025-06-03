@@ -11,7 +11,6 @@ terraform {
   backend "s3" {
     bucket         = "terraform-vini-dev-use2"
     region         = "us-east-2"
-    #dynamodb_table = "bazk-terraform-dev-shared"
     key            = "shared/terraform.tfstate"
     encrypt        = true
     use_lockfile   = true

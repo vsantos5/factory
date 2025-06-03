@@ -1,6 +1,6 @@
 module "vpc" {
   for_each = { for vpcs in local.workspace.vpc : vpcs.name => vpcs }
-  source   = "/home/vinicius/bazk/aws-infra/v2/tfmodules/vpc"
+  source   = "../../tfmodules/vpc"
 
   vpc_cidr               = each.value.cidr_block
   name                   = try(each.value.name, "")
