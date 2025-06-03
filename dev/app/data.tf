@@ -91,41 +91,4 @@ data "terraform_remote_state" "shared" {
   }
 }
 
-
-#######################################################
-data "aws_iam_policy_document" "bucket_read_policy" {
-  for_each = { for buckets in local.workspace.frontend : buckets.bkt_name => buckets }
-  statement {
-    principals {
-      type        = "AWS"
-      identifiers = ["*"] #aws_cloudfront_origin_access_identity.CloudFrontOAI.iam_arn]
-    }
-
-    actions = [
-      "s3:GetObject",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}/*"
-      #"${module.s3_frontend["${each.value.bkt_name}"].s3_bucket_arn}/*"
-      #"${aws_s3_bucket.merchant-panel-ui.arn}/*" ##################################
-    ]
-  }
-
-  statement {
-    principals {
-      type        = "AWS"
-      identifiers = ["*"] #aws_cloudfront_origin_access_identity.CloudFrontOAI.iam_arn]
-    }
-
-    actions = [
-      "s3:ListBucket",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${each.value.bkt_name}-${local.sticker}-${var.env}-${local.region_alias}"
-      #module.s3_frontend["${each.value.bkt_name}"].s3_bucket_arn
-    ]
-  }
-}
 */

@@ -10,6 +10,7 @@ locals {
   s3_domain_name = "s3.${local.region}.amazonaws.com"
   sticker        = "vmoura"
 
+  vpc_name = yamldecode(file("../shared/config.yaml"))["workspaces"][var.env]["vpc"][0]["name"]
   vpc_cidr = yamldecode(file("../shared/config.yaml"))["workspaces"][var.env]["vpc"][0]["cidr_block"]
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)
 

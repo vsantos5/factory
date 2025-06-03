@@ -22,7 +22,7 @@ module "cloudfront" {
 
       origin_shield = {
         enabled              = true
-        origin_shield_region = "sa-east-1"
+        origin_shield_region = local.region
       }
     }
   }
@@ -40,7 +40,7 @@ module "cloudfront" {
 
       origin_shield = {
         enabled              = true
-        origin_shield_region = "sa-east-1"
+        origin_shield_region = local.region
       }
     }
   }
@@ -102,15 +102,15 @@ module "s3_frontend" {
   object_ownership         = "ObjectWriter"
 
   versioning = {
-    status     = true #Flag para informar se o versionamento deve ser habilitado(true=default) para o bucket do Flow Logs criado pelo modulo.
+    status     = true
     mfa_delete = false
   }
 
   server_side_encryption_configuration = {
     rule = {
       apply_server_side_encryption_by_default = {
-        kms_master_key_id = try(each.value.kms_key_arn, "")         #ARN da Chave KMS utilizada para cirptografar o bucket do Flow Logs criado pelo modulo. Essa informacao so precisa ser utilizada quando o sse_algorithm for aws:kms. Por padrao, a chave utilizada sera aws/s3.
-        sse_algorithm     = try(each.value.sse_algorithm, "AES256") #Algoritimo utilizado para criptografar os dados do bucket do Flow Logs criado pelo modulo. Valores validos: AES256 ou aws:kms
+        kms_master_key_id = try(each.value.kms_key_arn, "")         #KMS key ARN used to encrypt the bucket. This information just need to be used when the sse_algorithm for aws:kms. By default, the aws/s3 key will be used.
+        sse_algorithm     = try(each.value.sse_algorithm, "AES256") #Algoritym used to encrypt the objects into bucket. Allowed values: AES256 or aws:kms
       }
     }
   }

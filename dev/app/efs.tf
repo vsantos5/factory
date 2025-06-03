@@ -64,7 +64,7 @@ module "efs" {
   # Replication configuration
   create_replication_configuration = try(each.value.enable_replication, false)
   replication_configuration_destination = {
-    region = "sa-east-1"
+    region = local.region
   }
 
   tags = local.default_tags

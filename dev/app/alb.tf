@@ -6,11 +6,11 @@ module "alb" {
   if albs.name != "" && albs.name != [] }
 
   name    = "${each.value.name}-alb-${local.sticker}-${var.env}-${local.region_alias}"
-  vpc_id  = data.aws_vpc.vpc.id         #data.terraform_remote_state.network.outputs.vpc_id
-  subnets = data.aws_subnets.public.ids #data.terraform_remote_state.network.outputs.public_subnets
+  vpc_id  = data.aws_vpc.vpc.id
+  subnets = data.aws_subnets.public.ids
 
-  enable_deletion_protection = false # Desabilitado para testes
-  #associate_web_acl                           = true
+  enable_deletion_protection = true
+  associate_web_acl                           = try(each.value.associate_web_acl, false)
   default_port                                = 443
   default_protocol                            = "HTTPS"
   internal                                    = try(each.value.internal, true)
