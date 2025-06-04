@@ -100,7 +100,7 @@ workspaces:
 1. **Edit `config.yaml`**  
    Update or add resources in the appropriate workspace (e.g., `dev`).
    Provide parameter values for resource creation.
-   If you don't need a resource to be created, just set the key parameter as an empty list [].
+   If you don't need a resource to be created, just set the key parameter as an empty list `[]`.
    Once the resources have been initially deployed, you need to uncomment the `data "aws_security_group" "alb-private"` and `data "aws_security_group" "alb-public"` data sources in `dev/app/data.tf`.
    You must also uncomment the `source_security_group_id` value within the ECS Security Group definition in `dev/app/security_groups.tf`.
 
