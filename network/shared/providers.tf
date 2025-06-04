@@ -9,10 +9,11 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "bazk-terraform-net-use2"
+    bucket         = "terraform-vini-net-use2"
     region         = "us-east-2"
-    dynamodb_table = "bazk-terraform-network-shared" #LockID
     key            = "shared/terraform.tfstate"
+    encrypt        = true
+    use_lockfile   = true
   }
 }
 

@@ -1,6 +1,6 @@
 module "tgw" {
   for_each = { for tgws in local.workspace.tgw : tgws.name => tgws }
-  source   = "/home/vinicius/bazk/aws-infra/v2/tfmodules/tgw"
+  source   = "../../tfmodules/tgw"
 
   name                                   = try(each.value.name, "")
   tgw_name                               = try(each.value.name, "")

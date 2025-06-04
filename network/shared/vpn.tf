@@ -1,6 +1,6 @@
 module "vpn" {
   #for_each = { for vpns in local.workspace.vpn : vpns.name => vpns }
-  source   = "/home/vinicius/bazk/aws-infra/v2/tfmodules/vpn"
+  source   = "../../tfmodules/vpn"
 
   vpc_name = "vpc-${local.workspace.vpc[0].name}"
   cgw_name = "${local.workspace.vpc[0].name}-VPN1"
