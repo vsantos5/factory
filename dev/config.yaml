@@ -3,28 +3,28 @@ workspaces:
   dev:
 
     alb:
-      # - name: []
-      #   service: {}
+      - name: []
+        service: {}
       #ECS/EKS uses the private ALB to route traffic to the services.
       #IF deleted the ECS will not work.      
-      - name: private #Dont change the private ALB name, it is used on other modules.
-        internal: true
-        service:
-          core:
-            priority: 1
-            health_check_path: /core/actuator/health
-            health_check_interval: 300
-            health_check_timeout: 120
-            healthy_threshold_count: 3
-            unhealthy_threshold_count: 3
-          backoffice:
-            priority: 2
-            health_check_interval: 300
-            health_check_timeout: 5
-            healthy_threshold_count: 3
-            unhealthy_threshold_count: 3
-          pix:
-            priority: 3
+      # - name: private #Dont change the private ALB name, it is used on other modules.
+      #   internal: true
+      #   service:
+      #     core:
+      #       priority: 1
+      #       health_check_path: /core/actuator/health
+      #       health_check_interval: 300
+      #       health_check_timeout: 120
+      #       healthy_threshold_count: 3
+      #       unhealthy_threshold_count: 3
+      #     backoffice:
+      #       priority: 2
+      #       health_check_interval: 300
+      #       health_check_timeout: 5
+      #       healthy_threshold_count: 3
+      #       unhealthy_threshold_count: 3
+      #     pix:
+      #       priority: 3
 
       - name: []
         service: {}

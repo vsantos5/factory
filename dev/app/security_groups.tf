@@ -37,7 +37,7 @@ module "sg" {
   source   = "terraform-aws-modules/security-group/aws"
   version  = "5.3.0"
 
-  name        = "${each.key}-sg-${local.sticker}-${var.env}-${local.region_alias}"
+  name        = "${each.key}-sg-${var.env}-${local.region_alias}"
   description = each.value.description
   vpc_id      = data.aws_vpc.vpc.id
 

@@ -9,7 +9,7 @@ module "alb" {
   vpc_id  = data.aws_vpc.vpc.id
   subnets = data.aws_subnets.public.ids
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
   associate_web_acl                           = try(each.value.associate_web_acl, false)
   default_port                                = 443
   default_protocol                            = "HTTPS"
