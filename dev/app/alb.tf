@@ -51,7 +51,7 @@ resource "aws_lb_listener" "this" {
 resource "aws_lb_target_group" "private" {
   for_each = local.workspace.alb[0].service
 
-  name        = "${each.key}-tg-alb-${local.sticker}-${var.env}-${local.region_alias}"
+  name        = "${each.key}-tg-alb-${var.env}-${local.region_alias}"
   port        = 443
   protocol    = "HTTPS"
   target_type = "ip"
